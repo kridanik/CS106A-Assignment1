@@ -62,6 +62,7 @@ public class CollectNewspaperKarel extends SuperKarel {
 		turnRight();
 		turnRight();
 		turnRight();
+		turnRight();
 	}
 
 }
