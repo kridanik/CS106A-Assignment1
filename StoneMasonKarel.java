@@ -12,7 +12,7 @@ public class StoneMasonKarel extends SuperKarel {
 
 	/* Fixes one column at a time, until it hits the wall. */
 	public void run() {
-		while(frontIsClear()) {
+		while (frontIsClear()) {
 			fixColumn();
 			findColumn();
 		}
