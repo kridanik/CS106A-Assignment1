@@ -1,3 +1,3 @@
 # CS106A-Assignment1
 
-See README.pdf
+See Assignment1.pdf
