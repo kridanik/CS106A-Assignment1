@@ -1,3 +1,4 @@
+
 /*
  * File: CheckerboardKarel.java
  * ----------------------------
@@ -11,6 +12,68 @@ import stanford.karel.*;
 
 public class CheckerboardKarel extends SuperKarel {
 
-	// You fill in this part
+	public void run() {
+		drawCheckerboard();
+	}
 
+	private void drawCheckerboard() {
+		putBeeper();
+		drawOneRow();
+		while ((facingEast() && (frontIsClear() || leftIsClear()))
+				|| (facingWest() && (frontIsClear() || rightIsClear()))) {
+			if (beepersPresent()) {
+				if (facingEast()) {
+					turnLeft();
+					move();
+					turnLeft();
+					drawOneRow();
+				} else {
+					turnRight();
+					move();
+					turnRight();
+					drawOneRow();
+				}
+			} else {
+				if (facingEast()) {
+					turnLeft();
+					move();
+					turnLeft();
+					putBeeper();
+					drawOneRow();
+				} else {
+					turnRight();
+					move();
+					turnRight();
+					putBeeper();
+					drawOneRow();
+				}
+			}
+		}
+	}
+
+	private void drawOneRow() {
+		if (beepersPresent()) {
+			drawBlackRow();
+		} else {
+			drawWhiteRow();
+		}
+	}
+
+	private void drawBlackRow() {
+		while (frontIsClear()) {
+			move();
+			if (frontIsClear()) {
+				move();
+				putBeeper();
+			}
+		}
+	}
+
+	private void drawWhiteRow() {
+		while (frontIsClear()) {
+			move();
+			putBeeper();
+			move();
+		}
+	}
 }
